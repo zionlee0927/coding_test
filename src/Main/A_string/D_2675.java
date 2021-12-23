@@ -2,6 +2,7 @@ package Main.A_string;
 
 import java.util.Scanner;
 
+// 4. 문자열 반복
 public class D_2675 {
     public void solution(int testCase, String line){
         StringBuilder stringBuilder = new StringBuilder();
