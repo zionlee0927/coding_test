@@ -1,7 +1,12 @@
-import java.util.*;
+package Main.A_string;
 
-public class Main {
+import java.util.*;
+import java.util.stream.Collectors;
+
+// 4. 단어공부
+public class E_1157 {
     public void solution(String line) {
+        StringBuilder stringBuilder = new StringBuilder();
         char[] chars = line.toUpperCase().toCharArray();
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < chars.length; i++) {
@@ -22,7 +27,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main M = new Main();
+        E_1157 M = new E_1157();
 
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
