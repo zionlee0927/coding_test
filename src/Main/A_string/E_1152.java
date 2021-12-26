@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 // 5. 단어의 개수
 public class E_1152 {
     public void solution(String line) {
-        System.out.println(new StringTokenizer(line," ").countTokens());
     }
 
     public static void main(String[] args) {
