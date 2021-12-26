@@ -1,11 +1,12 @@
 package Main.A_string;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 // 5. 단어의 개수
 public class E_1152 {
     public void solution(String line) {
-        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println(new StringTokenizer(line," ").countTokens());
     }
 
     public static void main(String[] args) {
