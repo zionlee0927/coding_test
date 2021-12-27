@@ -1,6 +1,9 @@
-import java.util.*;
+package Main.A_string;
 
-public class Main {
+import java.util.Scanner;
+
+// 7. 다이얼
+public class H_5622 {
     public void solution(String s) {
         int sum = s.chars().map(c -> {
             int a = 2;
@@ -18,7 +21,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main M = new Main();
+        H_5622 M = new H_5622();
 
         Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
