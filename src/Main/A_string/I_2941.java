@@ -1,6 +1,9 @@
-import java.util.*;
+package Main.A_string;
 
-public class Main {
+import java.util.Scanner;
+
+// 8. 크로아티아 알파벳
+public class I_2941 {
     public void solution(String line) {
         char[] chars = line.toCharArray();
 
@@ -46,7 +49,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main M = new Main();
+        I_2941 M = new I_2941();
 
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
