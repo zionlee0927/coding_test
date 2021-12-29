@@ -1,6 +1,12 @@
-import java.util.*;
+package Main.A_string;
 
-public class Main {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+// 9. 그룹단어
+public class J_1316 {
     public boolean solution(String line) {
         char[] chars = line.toCharArray();
         List<String> list = new ArrayList<>();
@@ -17,7 +23,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main M = new Main();
+        J_1316 M = new J_1316();
 
         Scanner scanner = new Scanner(System.in);
         int testCase = Integer.parseInt(scanner.nextLine());
@@ -25,6 +31,7 @@ public class Main {
         for (int i = 0; i < testCase; i++) {
             String s = scanner.nextLine();
             if(M.solution(s)) count++;
+
         }
         System.out.println(count);
     }
