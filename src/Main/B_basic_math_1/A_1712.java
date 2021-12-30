@@ -1,8 +1,11 @@
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
+import java.util.Scanner;
+
+// 1. 손익분기점
+public class A_1712 {
     public static void main(String[] args) {
-        Main M = new Main();
+        A_1712 M = new A_1712();
 
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
