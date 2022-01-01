@@ -1,8 +1,11 @@
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
+import java.util.Scanner;
+
+// 2. 벌집
+public class B_2292 {
     public static void main(String[] args) {
-        Main M = new Main();
+        B_2292 M = new B_2292();
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
