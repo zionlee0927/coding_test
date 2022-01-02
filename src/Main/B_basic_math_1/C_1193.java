@@ -1,8 +1,11 @@
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
+import java.util.Scanner;
+
+// 3. 분수
+public class C_1193 {
     public static void main(String[] args) {
-        Main M = new Main();
+        C_1193 M = new C_1193();
 
         Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
