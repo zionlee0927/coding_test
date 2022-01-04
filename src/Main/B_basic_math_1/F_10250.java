@@ -1,9 +1,11 @@
-import java.io.IOException;
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.Scanner;
+
+// 5. ACM 호텔
+public class F_10250 {
+    public static void main(String[] args) throws Exception{
+        F_10250 M = new F_10250();
 
         Scanner scanner = new Scanner(System.in);
         int testCase = scanner.nextInt();
