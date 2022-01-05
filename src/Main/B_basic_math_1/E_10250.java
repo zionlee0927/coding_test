@@ -3,9 +3,9 @@ package Main.B_basic_math_1;
 import java.util.Scanner;
 
 // 5. ACM 호텔
-public class F_10250 {
+public class E_10250 {
     public static void main(String[] args) throws Exception{
-        F_10250 M = new F_10250();
+        E_10250 M = new E_10250();
 
         Scanner scanner = new Scanner(System.in);
         int testCase = scanner.nextInt();

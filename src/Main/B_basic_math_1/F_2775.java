@@ -1,9 +1,13 @@
-import java.io.IOException;
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.function.IntUnaryOperator;
+
+// 6. 부녀회장이 될테야
+public class F_2775 {
+    public static void main(String[] args) throws Exception{
+        F_2775 M = new F_2775();
 
         Scanner scanner = new Scanner(System.in);
         int testCase = scanner.nextInt();
