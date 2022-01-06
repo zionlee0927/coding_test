@@ -1,9 +1,12 @@
-import java.io.IOException;
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.Arrays;
+import java.util.Scanner;
+
+// 7. 설탕 배달
+public class G_2839 {
+    public static void main(String[] args) throws Exception{
+        G_2839 M = new G_2839();
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
