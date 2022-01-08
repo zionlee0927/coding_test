@@ -1,10 +1,12 @@
-import java.io.IOException;
-import java.math.BigInteger;
-import java.util.*;
+package Main.B_basic_math_1;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.math.BigInteger;
+import java.util.Scanner;
+
+// 8. 큰 수 A+B
+public class H_10757 {
+    public static void main(String[] args) throws Exception{
+        H_10757 M = new H_10757();
 
         Scanner scanner = new Scanner(System.in);
         String a = scanner.next();
