@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.*;
 
 public class Main {
@@ -7,16 +6,23 @@ public class Main {
         Main M = new Main();
 
         Scanner scanner = new Scanner(System.in);
-        String a = scanner.next();
-        String b = scanner.next();
+        int testCase = scanner.nextInt();
+        for (int i = 0; i < testCase; i++) {
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            System.out.println(M.solution(x,y));
+        }
 
-        System.out.println(M.solution(a,b));
     }
 
-    private BigInteger solution(String a, String b) {
-        BigInteger A = new BigInteger(a);
-        BigInteger B = new BigInteger(b);
+    private int solution(int x, int y) {
+        int count = 1;
+        double distance = y - x;
+        double halfOfDistance = Math.round(distance / 2);
 
-        return A.add(B);
+        if (distance == 1) return 1;
+        else if (distance == 2) return 2;
+
+        return count+ (int) halfOfDistance;
     }
 }
