@@ -18,18 +18,18 @@ public class I_1011 {
     }
 
     private int solution(int x, int y) {
-        int count = 1;
-        double distance = y - x;
-        double halfOfDistance = Math.round(distance / 2);
 
-        if (halfOfDistance == 0) return 1;
-        else if (halfOfDistance == 1) return 2;
-        for (int i = 1; i <= halfOfDistance; i++) {
-            int sum = (i * i + i) / 2;
-            if (distance < sum) break;
-            count++;
+        int distance = y - x;
+        int max = (int) Math.sqrt(distance);
+
+        if(max == Math.sqrt(distance)) {
+            return (max * 2 - 1);
         }
-
-        return 2*count;
+        else if(distance <= max * max + max) {
+            return (max * 2);
+        }
+        else {
+            return (max * 2 + 1);
+        }
     }
 }

@@ -16,13 +16,18 @@ public class Main {
     }
 
     private int solution(int x, int y) {
-        int count = 1;
-        double distance = y - x;
-        double halfOfDistance = Math.round(distance / 2);
 
-        if (distance == 1) return 1;
-        else if (distance == 2) return 2;
+        int distance = y - x;
+        int max = (int) Math.sqrt(distance);
 
-        return count+ (int) halfOfDistance;
+        if(max == Math.sqrt(distance)) {
+            return (max * 2 - 1);
+        }
+        else if(distance <= max * max + max) {
+            return (max * 2);
+        }
+        else {
+            return (max * 2 + 1);
+        }
     }
 }
