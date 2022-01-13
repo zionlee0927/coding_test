@@ -7,27 +7,29 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int testCase = scanner.nextInt();
+        int[] nums = new int[testCase];
         for (int i = 0; i < testCase; i++) {
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
-            System.out.println(M.solution(x,y));
+            nums[i] = scanner.nextInt();
         }
 
+        System.out.println(M.solution(nums));
     }
 
-    private int solution(int x, int y) {
+    private int solution(int[] nums) {
+        int count = 0;
+        boolean isPrime = false;
+        for (int num : nums) {
+            if (primeChecker(num)) count++;
+        }
+        return count;
+    }
 
-        int distance = y - x;
-        int max = (int) Math.sqrt(distance);
-
-        if(max == Math.sqrt(distance)) {
-            return (max * 2 - 1);
+    private boolean primeChecker(int num) {
+        boolean checker = false;
+        if (num < 2) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
         }
-        else if(distance <= max * max + max) {
-            return (max * 2);
-        }
-        else {
-            return (max * 2 + 1);
-        }
+        return true;
     }
 }

@@ -19,7 +19,19 @@ public class A_1978 {
 
     private int solution(int[] nums) {
         int count = 0;
-
+        boolean isPrime = false;
+        for (int num : nums) {
+            if (primeChecker(num)) count++;
+        }
         return count;
+    }
+
+    private boolean primeChecker(int num) {
+        boolean checker = false;
+        if (num < 2) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
     }
 }
