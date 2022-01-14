@@ -27,7 +27,6 @@ public class A_1978 {
     }
 
     private boolean primeChecker(int num) {
-        boolean checker = false;
         if (num < 2) return false;
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) return false;

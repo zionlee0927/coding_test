@@ -1,9 +1,14 @@
-import java.io.IOException;
-import java.util.*;
+package Main.C_basic_math_2;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+// 2. 소수
+public class B_2581 {
+    public static void main(String[] args) {
+        B_2581 M = new B_2581();
 
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();
