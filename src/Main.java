@@ -6,20 +6,20 @@ public class Main {
         Main M = new Main();
 
         Scanner scanner = new Scanner(System.in);
-        int m = scanner.nextInt();
-        int n = scanner.nextInt();
-        System.out.println(M.solution(m,n));
+
+        while (true) {
+            int testCase = scanner.nextInt();
+            if (testCase == 0) break;
+            System.out.println(M.solution(testCase));
+        }
     }
 
-    private String solution(int m, int n) {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (int i = m; i <= n; i++) {
-            if (i%2!=0){
-                if (isPrime(i)) stringBuilder.append(i).append("\n");
-            }
+    private int solution(int n) {
+        int count = 0;
+        for (int i = n+1; i <= 2*n; i++) {
+            if (isPrime(i)) count++;
         }
-        return stringBuilder.toString();
+        return count;
     }
 
     private boolean isPrime(int num) {
