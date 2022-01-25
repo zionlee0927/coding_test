@@ -1,9 +1,11 @@
-import java.io.IOException;
+package Main.C_basic_math_2;
+
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+// 7. 직사각형에서 탈출
+public class G_1085 {
+    public static void main(String[] args) {
+        G_1085 M = new G_1085();
 
         Scanner scanner = new Scanner(System.in);
 
