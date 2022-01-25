@@ -16,6 +16,11 @@ public class Main {
     }
 
     private int solution(int x, int y, int w, int h) {
-        return Math.min(w - x, h - y);
+        int right = w - x;
+        int left = x;
+        int top = h - y;
+        int bottom = y;
+
+        return Math.min(Math.min(right, left), Math.min(top,bottom));
     }
 }
