@@ -1,9 +1,11 @@
-import java.io.IOException;
-import java.util.*;
+package Main.C_basic_math_2;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.Scanner;
+
+// 8. 네 번째 점
+public class H_3009 {
+    public static void main(String[] args) {
+        H_3009 M = new H_3009();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -23,4 +25,5 @@ public class Main {
 
         return x4 + " " + y4;
     }
+
 }
