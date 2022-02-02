@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -7,20 +9,27 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        int x1 = scanner.nextInt();
-        int y1 = scanner.nextInt();
-        int x2 = scanner.nextInt();
-        int y2 = scanner.nextInt();
-        int x3 = scanner.nextInt();
-        int y3 = scanner.nextInt();
-
-        System.out.print(M.solution(x1,y1,x2,y2,x3,y3));
+        while (true){
+            int a = scanner.nextInt();
+            if (a == 0) break;
+            int b = scanner.nextInt();
+            int c = scanner.nextInt();
+            System.out.println(M.solution(a,b,c));
+        }
     }
 
-    private String solution(int x1, int y1, int x2, int y2, int x3, int y3) {
-        int x4 = (x1 == x2) ? x3 : (x1 == x3 ? x2 : x1);
-        int y4 = (y1 == y2) ? y3 : (y1 == y3 ? y2 : y1);
+    private String solution(int a, int b, int c) {
 
-        return x4 + " " + y4;
+        List<Integer> collect = Stream.of(a, b, c)
+                .sorted(Comparator.comparing(Integer::intValue))
+                .collect(Collectors.toList());
+
+        int ausar = collect.get(0);
+        int auset = collect.get(1);
+        int heru = collect.get(2);
+
+        if (Math.pow(ausar,2)+Math.pow(auset,2) == Math.pow(heru,2)) return "right";
+
+        return "wrong";
     }
 }
