@@ -8,10 +8,13 @@ public class A_10872 {
         A_10872 M = new A_10872();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println(M.solution());
+        int N = scanner.nextInt();
+        System.out.println(M.solution(N));
     }
 
-    private int solution() {
-        return 0;
+    private int solution(int n) {
+        if (n <= 1) return 1;
+
+        return n * solution(n-1);
     }
 }
