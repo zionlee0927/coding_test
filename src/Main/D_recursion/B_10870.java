@@ -1,9 +1,11 @@
-import java.io.IOException;
-import java.util.*;
+package Main.D_recursion;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.Scanner;
+
+// 2. 피보나치 수열 5
+public class B_10870 {
+    public static void main(String[] args) {
+        B_10870 M = new B_10870();
 
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
