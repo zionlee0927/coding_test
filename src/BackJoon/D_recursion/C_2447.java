@@ -13,6 +13,7 @@ public class C_2447 {
     }
 
     private String solution(int n) {
+        StringBuilder sb = new StringBuilder();
         int k = 0;
         int temp = n;
 
@@ -21,6 +22,15 @@ public class C_2447 {
             k++;
         }
 
-        return String.valueOf(k);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i!=1 && j!=1){
+                    sb.append("*");
+                }
+                if (j==n-1) sb.append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 }
