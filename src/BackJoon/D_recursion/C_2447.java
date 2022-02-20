@@ -4,33 +4,65 @@ import java.util.Scanner;
 
 // 3. 별찍기 - 10
 public class C_2447 {
+    static char[][] arr;
+
     public static void main(String[] args) {
         C_2447 M = new C_2447();
 
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        System.out.println(M.solution(N));
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+
+        arr = new char[N][N];
+
+        star(0, 0, N, false);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                sb.append(arr[i][j]);
+            }
+            sb.append('\n');
+        }
+        System.out.print(sb);
     }
 
-    private String solution(int n) {
-        StringBuilder sb = new StringBuilder();
-        int k = 0;
-        int temp = n;
+    static void star(int x, int y, int N, boolean blank) {
 
-        while (temp > 1){
-            temp = temp / 3;
-            k++;
+        // 공백칸일 경우
+        if (blank) {
+            for (int i = x; i < x + N; i++) {
+                for (int j = y; j < y + N; j++) {
+                    arr[i][j] = ' ';
+                }
+            }
+            return;
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i!=1 && j!=1){
-                    sb.append("*");
+        // 더이상 쪼갤 수 없는 블록일 때
+        if (N == 1) {
+            arr[x][y] = '*';
+            return;
+        }
+
+		/*
+		   N=27 일 경우 한 블록의 사이즈는 9이고,
+		   N=9 일 경우 한 블록의 사이즈는 3이듯
+		   해당 블록의 한 칸을 담을 변수를 의미 size
+
+		   count는 별 출력 누적을 의미
+		 */
+
+        int size = N / 3;
+        int count = 0;
+        for (int i = x; i < x + N; i += size) {
+            for (int j = y; j < y + N; j += size) {
+                count++;
+                if (count == 5) { // 공백 칸일 경우
+                    star(i, j, size, true);
+                } else {
+                    star(i, j, size, false);
                 }
-                if (j==n-1) sb.append("\n");
             }
         }
-
-        return sb.toString();
     }
 }
