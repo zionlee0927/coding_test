@@ -2,65 +2,36 @@ import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    static char[][] arr;
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         Main M = new Main();
 
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
 
-        arr = new char[N][N];
+        sb.append((int) Math.pow(2, N) - 1).append("\n");
 
-        star(0, 0, N, false);
+        M.solution(N,1,2,3);
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                sb.append(arr[i][j]);
-            }
-            sb.append('\n');
-        }
-        System.out.print(sb);
+        System.out.println(sb.toString());
     }
 
-    static void star(int x, int y, int N, boolean blank) {
-
-        // 공백칸일 경우
-        if (blank) {
-            for (int i = x; i < x + N; i++) {
-                for (int j = y; j < y + N; j++) {
-                    arr[i][j] = ' ';
-                }
-            }
-            return;
-        }
-
-        // 더이상 쪼갤 수 없는 블록일 때
+    private void solution(int N, int start, int mid, int to) {
+        // 이동할 원반의 수가 1개라면?
         if (N == 1) {
-            arr[x][y] = '*';
+            sb.append(start + " " + to + "\n");
             return;
         }
 
-		/*
-		   N=27 일 경우 한 블록의 사이즈는 9이고,
-		   N=9 일 경우 한 블록의 사이즈는 3이듯
-		   해당 블록의 한 칸을 담을 변수를 의미 size
+        // A -> C로 옮긴다고 가정할 떄,
+        // STEP 1 : N-1개를 A에서 B로 이동 (= start 지점의 N-1개의 원판을 mid 지점으로 옮긴다.)
+        solution(N - 1, start, to, mid);
 
-		   count는 별 출력 누적을 의미
-		 */
+        // STEP 2 : 1개를 A에서 C로 이동 (= start 지점의 N번째 원판을 to지점으로 옮긴다.)
+        sb.append(start + " " + to + "\n");
 
-        int size = N / 3;
-        int count = 0;
-        for (int i = x; i < x + N; i += size) {
-            for (int j = y; j < y + N; j += size) {
-                count++;
-                if (count == 5) { // 공백 칸일 경우
-                    star(i, j, size, true);
-                } else {
-                    star(i, j, size, false);
-                }
-            }
-        }
+        // STEP 3 : N-1개를 B에서 C로 이동 (= mid 지점의 N-1개의 원판을 to 지점으로 옮긴다.)
+        solution(N - 1, mid, start, to);
     }
 }
