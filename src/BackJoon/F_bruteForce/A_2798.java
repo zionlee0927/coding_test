@@ -21,11 +21,6 @@ public class A_2798 {
 
     private int solution(int n, int m, int[] nums) {
 
-        System.out.println(n);
-        System.out.println(m);
-        System.out.println("----------------");
-
-        System.out.println(Arrays.toString(nums));
         return 1;
     }
 }
