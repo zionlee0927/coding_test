@@ -1,37 +1,42 @@
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
-    static StringBuilder sb = new StringBuilder();
-
     public static void main(String[] args) throws IOException {
         Main M = new Main();
 
         Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        List<Integer> nums = new ArrayList<>();
 
-        sb.append((int) Math.pow(2, N) - 1).append("\n");
-
-        M.solution(N,1,2,3);
-
-        System.out.println(sb.toString());
+        for (int i = 0; i < n; i++) {
+            nums.add(scanner.nextInt());
+        }
+        System.out.println(M.solution(m,nums));
     }
 
-    private void solution(int N, int start, int mid, int to) {
-        // 이동할 원반의 수가 1개라면?
-        if (N == 1) {
-            sb.append(start + " " + to + "\n");
-            return;
+    private int solution(int m, List<Integer> nums) {
+        int result = 0;
+
+        List<Integer> reverse_sorted = nums.stream().sorted(Comparator.comparing(Integer::intValue).reversed()).collect(Collectors.toList());
+        Integer min = reverse_sorted.get(reverse_sorted.size() - 1);
+        Integer next_min = reverse_sorted.get(reverse_sorted.size() - 2);
+
+        for (int i = 0; i < reverse_sorted.size() - 3; i++) {
+            if (reverse_sorted.get(i) > m - min - next_min) reverse_sorted.remove(i);
         }
 
-        // A -> C로 옮긴다고 가정할 떄,
-        // STEP 1 : N-1개를 A에서 B로 이동 (= start 지점의 N-1개의 원판을 mid 지점으로 옮긴다.)
-        solution(N - 1, start, to, mid);
-
-        // STEP 2 : 1개를 A에서 C로 이동 (= start 지점의 N번째 원판을 to지점으로 옮긴다.)
-        sb.append(start + " " + to + "\n");
-
-        // STEP 3 : N-1개를 B에서 C로 이동 (= mid 지점의 N-1개의 원판을 to 지점으로 옮긴다.)
-        solution(N - 1, mid, start, to);
+        for (int i = 0; i < reverse_sorted.size()-2; i++) {
+            for (int j = i+1; j < reverse_sorted.size()-1; j++) {
+                for (int k = j+1; k < reverse_sorted.size(); k++) {
+                    int sum = reverse_sorted.get(i) + reverse_sorted.get(j) + reverse_sorted.get(k);
+                    if (sum==m) return sum;
+                    if (sum <= m && m-sum < m-result) result = sum;
+                }
+            }
+        }
+        return result;
     }
 }
