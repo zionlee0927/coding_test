@@ -1,12 +1,16 @@
-import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+package BackJoon.F_bruteForce;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Main M = new Main();
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
+// 3. 덩치
+public class C_7568 {
+    public static void main(String[] args) {
+        C_7568 M = new C_7568();
         Scanner scanner = new Scanner(System.in);
+
         String s = scanner.nextLine();
         int testCase = Integer.parseInt(s);
         int[][] arr = new int[testCase][2];
