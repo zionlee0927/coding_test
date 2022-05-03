@@ -7,30 +7,40 @@ public class Main {
         Main M = new Main();
 
         Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        int testCase = Integer.parseInt(s);
-        int[][] arr = new int[testCase][2];
-        for (int i = 0; i < testCase; i++) {
-            String nextLine = scanner.nextLine();
-            StringTokenizer st = new StringTokenizer(nextLine);
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+        int w = scanner.nextInt();
+        int h = scanner.nextInt();
+        boolean[][] arr = new boolean[w][h];
+
+        for (int i = 0; i < w; i++) {
+            String next = scanner.next();
+            for (int j = 0; j < h; j++) {
+                arr[i][j] = next.charAt(j) == 'W';
+            }
         }
 
-        M.solution(arr);
+        System.out.println(M.solution(w,h,arr));
     }
 
-    private void solution(int[][] arr) {
-
-        for (int i = 0; i < arr.length; i++) {
-            int rank = 1;
-            int weight = arr[i][0];
-            int height = arr[i][1];
-            for (int j = 0; j < arr.length; j++) {
-                if (weight < arr[j][0] && height < arr[j][1]) rank++;
+    private int solution(int w, int h, boolean[][] arr) {
+        int min = 64;
+        for (int i = 0; i < w - 7; i++) {
+            for (int j = 0; j < h - 7; j++) {
+                min = Math.min(min, check(arr, i, j));
             }
-            if (i == arr.length-1) System.out.print(rank);
-            else System.out.print(rank+" ");
         }
+        return min;
+    }
+
+    private int check(boolean[][] arr, int x, int y) {
+        int cnt = 0;
+        boolean first = arr[x][y];
+        for (int i = x; i < x + 8; i++) {
+            for (int j = y; j < y + 8; j++) {
+                if (arr[i][j] != first) cnt++;
+                first = (!first);
+            }
+            first = (!first);
+        }
+        return Math.min(cnt, 64-cnt);
     }
 }

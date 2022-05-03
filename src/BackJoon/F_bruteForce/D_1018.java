@@ -26,12 +26,24 @@ public class D_1018 {
 
     private int solution(int w, int h, boolean[][] arr) {
         int min = 64;
-        int cnt = 0;
         for (int i = 0; i < w - 7; i++) {
             for (int j = 0; j < h - 7; j++) {
-
+                min = Math.min(min, check(arr, i, j));
             }
         }
         return min;
+    }
+
+    private int check(boolean[][] arr, int x, int y) {
+        int cnt = 0;
+        boolean first = arr[x][y];
+        for (int i = x; i < x + 8; i++) {
+            for (int j = y; j < y + 8; j++) {
+                if (arr[i][j] != first) cnt++;
+                first = (!first);
+            }
+            first = (!first);
+        }
+        return Math.min(cnt, 64-cnt);
     }
 }
