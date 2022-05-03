@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) throws IOException {
         Main M = new Main();
-
         Scanner scanner = new Scanner(System.in);
         int w = scanner.nextInt();
         int h = scanner.nextInt();
