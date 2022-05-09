@@ -7,6 +7,12 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 // 3. 덩치
+/*
+* 김프로, 축구:농구:야구, 구기종목 좋아요
+정프로, 개발:당구:족구, 개발하는데 뛰긴 싫어
+앙몬드, 피아노, 죠르디가 좋아요 좋아좋아너무좋아
+죠르디, 스포츠댄스:개발, 개발하는 죠르디
+* */
 public class FlatMap {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
